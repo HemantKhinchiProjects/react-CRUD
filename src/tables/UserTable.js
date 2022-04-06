@@ -2,7 +2,7 @@ import React from 'react';
 
 const UserTable = (props) => {
   return (
-    <table>
+    <table className="table table-striped table-hover">
       <thead>
         <tr>
           <th>ID</th>
