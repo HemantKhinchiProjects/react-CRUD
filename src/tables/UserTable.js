@@ -21,7 +21,11 @@ const UserTable = (props) => {
                 <td>{name}</td>
                 <td>{username}</td>
                 <td>
-                  <button type="button" className="btn btn-danger">
+                  <button
+                    type="button"
+                    className="btn btn-danger"
+                    onClick={() => props.deleteUser(id)}
+                  >
                     Delete
                   </button>
                   <button className="btn btn-success">Edit</button>
