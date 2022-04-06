@@ -21,8 +21,10 @@ const UserTable = (props) => {
                 <td>{name}</td>
                 <td>{username}</td>
                 <td>
-                  <button>Delete</button>
-                  <button>Edit</button>
+                  <button type="button" className="btn btn-danger">
+                    Delete
+                  </button>
+                  <button className="btn btn-success">Edit</button>
                 </td>
               </tr>
             );
