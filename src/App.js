@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './style.css';
-//import userList from './data.js';
-import UserTable from './Tables/UserTable';
+import userList from './data.js';
+import UserTable from './tables/UserTable';
 export default function App() {
   const [users, setUsers] = useState(userList);
   return (
@@ -12,6 +12,7 @@ export default function App() {
           <h2>Add user</h2>
         </div>
         <div className="col-7">
+          <UserTable />
           <UserTable users={users} />
         </div>
       </div>
