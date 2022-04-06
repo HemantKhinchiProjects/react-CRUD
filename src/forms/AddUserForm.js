@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 const AddUserForm = (props) => {
   const initUser = { id: null, name: '', username: '' };
   const [user, setUser] = useState(initUser);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setUser({ ...user, [name]: value });
@@ -16,7 +17,7 @@ const AddUserForm = (props) => {
     <form>
       <label>Name</label>
       <input
-        className="u-full-width"
+        className="form-control"
         type="text"
         name="name"
         value={user.name}
@@ -24,13 +25,17 @@ const AddUserForm = (props) => {
       />
       <label>Username</label>
       <input
-        className="u-full-width"
+        className="form-control"
         type="text"
         name="username"
         value={user.username}
         onChange={handleChange}
       />
-      <button className="btn btn-primary mt" type="submit" onClick={handleSubmit}>
+      <button
+        className="btn btn-primary mt"
+        type="submit"
+        onClick={handleSubmit}
+      >
         Add user
       </button>
     </form>

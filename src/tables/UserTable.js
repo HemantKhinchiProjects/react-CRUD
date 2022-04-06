@@ -16,26 +16,35 @@ const UserTable = (props) => {
           props.users.map((user) => {
             const { id, name, username } = user;
             return (
-              <tr>
+              <tr key={id}>
                 <td>{id}</td>
                 <td>{name}</td>
                 <td>{username}</td>
                 <td>
-                  <button
-                    type="button"
-                    className="btn btn-danger"
-                    onClick={() => props.deleteUser(id)}
-                  >
-                    Delete
-                  </button>
-                  <button className="btn btn-success">Edit</button>
+                  <div class="btn-group">
+                    <button
+                      type="button"
+                      className="btn btn-danger"
+                      onClick={() => props.deleteUser(id)}
+                    >
+                      Delete
+                    </button>
+                    <button
+                      className="btn btn-success"
+                      onClick={() => props.editUser(id, user)}
+                    >
+                      Edit
+                    </button>
+                  </div>
                 </td>
               </tr>
             );
           })
         ) : (
           <tr>
-            <td colSpan={4}>No users found</td>
+            <td colSpan={4} className="text-center">
+              No users found
+            </td>
           </tr>
         )}
       </tbody>
