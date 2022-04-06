@@ -32,7 +32,7 @@ const AddUserForm = (props) => {
         onChange={handleChange}
       />
       <button
-        className="btn btn-primary mt"
+        className="btn btn-primary mt-2"
         type="submit"
         onClick={handleSubmit}
       >

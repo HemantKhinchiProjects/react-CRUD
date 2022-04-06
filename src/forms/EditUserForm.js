@@ -31,11 +31,19 @@ const EditUserForm = (props) => {
         name="username"
         onChange={handleChange}
       />
-      <div className="btn-group">
-        <button className="button-primary" type="submit" onClick={handleSubmit}>
+      <div className="btn-group mt-2">
+        <button
+          className="btn btn-primary"
+          type="submit"
+          onClick={handleSubmit}
+        >
           Edit user
         </button>
-        <button type="submit" onClick={() => props.setEditing(false)}>
+        <button
+          type="submit"
+          onClick={() => props.setEditing(false)}
+          className="btn btn-outline-primary"
+        >
           Cancel
         </button>
       </div>

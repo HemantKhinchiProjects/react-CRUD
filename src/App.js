@@ -3,11 +3,12 @@ import './style.css';
 import userList from './Data.js';
 import UserTable from './tables/UserTable';
 import AddUserForm from './forms/AddUserForm';
+import EditUserForm from './forms/EditUserForm';
 export default function App() {
   const [users, setUsers] = useState(userList);
   const addUser = (user) => {
     user.id = users.length + 1;
-    setUsers(...users, user);
+    setUsers([...users, user]);
   };
   const deleteUser = (id) => setUsers(users.filter((user) => user.id !== id));
   const [editing, setEditing] = useState(false);
@@ -23,6 +24,8 @@ export default function App() {
     setUsers(
       users.map((user) => (user.id === currentUser.id ? newUser : user))
     );
+    setCurrentUser(initialUser);
+    setEditing(false);
   };
 
   return (
@@ -30,8 +33,21 @@ export default function App() {
       <h1>React CRUD App with Hooks</h1>
       <div className="row">
         <div className="col-5">
-          <h2>Add user</h2>
-          <AddUserForm addUser={addUser} />
+          {editing ? (
+            <div>
+              <h2>Edit user</h2>
+              <EditUserForm
+                currentUser={currentUser}
+                setEditing={setEditing}
+                updateUser={updateUser}
+              />
+            </div>
+          ) : (
+            <div>
+              <h2>Add user</h2>
+              <AddUserForm addUser={addUser} />
+            </div>
+          )}
         </div>
         <div className="col-7">
           <UserTable
